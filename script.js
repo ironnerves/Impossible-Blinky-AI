@@ -24,15 +24,14 @@ function draw(){
    }else{
      differencex = playerx - blinkyx
      differencey = playery - blinkyy
-     if(differencex ?? 0){
+     while(differencex ?? 0 & differencey ?? 0){
        if(differencex < -1){
         blinkyx = blinkyx + 1
       }else if(differencex > 0) {
         blinkyx = blinkyx - 1
       }
-     }else{
-       if (differencey ?? 0) {
-         if (differencey < -1){
+        if (differencey ?? 0) {
+          if (differencey < -1){
            blinkyy = blinkyy + 1
          }else if(differencey > 0){
            blinkyy = blinkyy - 1
