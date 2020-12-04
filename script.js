@@ -4,12 +4,15 @@ let blinkyx
 let blinkyy
 let differencex
 let differencey
+let button1
 function setup() {
   createCanvas(400, 400)
   playerx = round(random(400))
   playery = round(random(400))
   blinkyx = round(random(400))
   blinkyy = round(random(400))
+  button1 = createButton("Click To Reset")
+  button1.mousePressed(reset_button)
 }
 
 function draw() {
@@ -20,11 +23,23 @@ function draw() {
   rect(blinkyx, blinkyy, 50, 50)
   differencex = playerx - blinkyx
   differencey = playery - blinkyy
-  if (differencex === 0 && differencey === 0) {
+  if (differencex < 50 && differencey < 50 ) {
     fill(255, 0, 0)
     textSize(50)
-    text("YOU WIN",50,50)
-  }else{
+    text("YOU LOSE", 50, 50)
+  } else {
+    if (keyCode === UP_ARROW && keyIsPressed === true){
+      playery = playery - 1
+    }
+    if (keyCode === DOWN_ARROW && keyIsPressed === true){
+      playery = playery + 1
+    }
+    if(keyCode === LEFT_ARROW && keyIsPressed === true){
+      playerx = playerx - 1
+    }
+    if(keyCode === RIGHT_ARROW && keyIsPressed === true){
+      playerx = playerx + 1
+    }
     if (differencex != 0) {
       if (differencex < -1) {
         blinkyx = blinkyx - 1
@@ -40,4 +55,11 @@ function draw() {
       }
     }
   }
+}
+
+function reset_button() {
+  playerx = round(random(255))
+  playery = round(random(255))
+  blinkyx = round(random(255))
+  blinkyy = round(random(255))
 }
