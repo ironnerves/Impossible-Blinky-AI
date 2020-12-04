@@ -23,7 +23,7 @@ function draw() {
   rect(blinkyx, blinkyy, 50, 50)
   differencex = playerx - blinkyx
   differencey = playery - blinkyy
-  if (differencex < 50 && differencey < 50 ) {
+  if (differencex < 50 && differencey < 50 && differencex > -50 && differencey > -50) {
     fill(255, 0, 0)
     textSize(50)
     text("YOU LOSE", 50, 50)
