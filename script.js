@@ -7,9 +7,9 @@ let blinky_speed
 let differencex
 let differencey
 let reset_button
-// let hack_button
-// let hack_button_player_speed_descriptor
-// let hack_button_player_speed_input
+let sus_button
+let hard_mode_button
+let even_harder_mode_button
 function setup() {
   createCanvas(400, 400)
   noStroke()
@@ -21,8 +21,8 @@ function setup() {
   blinky_speed = 1
   reset_button = createButton("Click To Reset")
   reset_button.mousePressed(reset_button_function)
-  // hack_button = createButton("Click To Enable Hacks")
-  // hack_button.mousePressed(hack_button_function)
+  hard_mode_button = createButton("Click To Enable Hard Mode")
+  hard_mode_button.mousePressed(hard_mode_button_function)
 }
 
 function draw() {
@@ -68,14 +68,23 @@ function draw() {
 }
 
 function reset_button_function() {
-  playerx = round(random(400))
-  playery = round(random(400))
-  blinkyx = round(random(400))
-  blinkyy = round(random(400))
+  playerx = random(400)
+  playery = random(400)
+  blinkyx = random(400)
+  blinkyy = random(400)
+  blinky_speed = 1
+  even_harder_mode_button.remove()
+}
+function hard_mode_button_function(){
+  blinky_speed = 2
+  even_harder_mode_button = createButton("Click To Enable Even Harder Mode")
+  even_harder_mode_button.mousePressed(even_harder_mode_button_function)
+  function even_harder_mode_button_function(){
+    blinky_speed = 3
+  }
 }
 
-// function hack_button_function(){
-//   hack_button_player_speed_descriptor = createP("Type Your Desired Speed Of Pac-Man And Then Press Enter. It Also Turns You Invisible")
-//   hack_button_player_speed_input = createInput("1")
-//   player_speed = hack_button_player_speed_input.value()
-// }
+
+function sus_mode(){
+
+}
